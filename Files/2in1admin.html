@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCK CENTER Products Catalog</title>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .search input {
+            padding: 0.75rem;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .category-filter select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .product-specs {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+
+        /* New styles for admin features */
+        .admin-panel {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .admin-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .admin-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Admin page specific styles */
+        .edit-panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .edit-panel h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .edit-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .edit-table th, .edit-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .edit-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        
+        .edit-table input {
+            width: 150px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .action-buttons {
+            margin-top: 20px;
+        }
+        
+        .save-button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .save-button:hover {
+            background-color: #27ae60;
+        }
+
+    .back-button {
+            background-color: #7f8c8d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .back-button:hover {
+            background-color: #6c7a7d;
+        }
+        
+        .reset-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .reset-btn:hover {
+            background-color: #c70d00;
+        }
+        
+        .status-message {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stock Center Products Catalog</h1>
+        <p class="subtitle">High-Quality Tech Solutions</p>
+    </header>
+    <div class="admin-panel">
+        <button class="admin-button" id="adminButton">Admin Mode</button>
+    </div>
+
+    <div class="container">
+        <!-- Admin Panel Button - NEW SECTION -->
+
+        
+        <!-- This section only shows on the main page -->
+        <div id="catalogSection">
+            <div class="filters">
+                <div class="search">
+                    <input type="text" placeholder="Search products...">
+                </div>
+                <div class="category-filter">
+                    <select>
+                        <option value="all">All Categories</option>
+                        <option value="all-in-one">All-In-One PCs</option>
+                        <option value="monitors">Monitors</option>
+                        <option value="cases">Desktop Cases</option>
+                        <option value="notebooks">Notebooks</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid - Will be populated dynamically -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <!-- Admin Edit Section - NEW SECTION -->
+        <div id="adminSection" style="display: none;">
+            <div class="edit-panel">
+                <h2>Edit Product Prices</h2>
+                <table class="edit-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Current Price</th>
+                            <th>New Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="editTableBody">
+                        <!-- Product edit rows will be inserted here -->
+                    </tbody>
+                </table>
+                
+                <div class="action-buttons">
+                    <button class="save-button" id="saveChanges">Save Changes</button>
+                    <button class="back-button" id="backToCatalog">Back to Catalog</button>
+                    <!-- <button class="back-button" id="backToCatalog">Back to Catalog</button> -->
+                    <button class="reset-btn" onclick="resetToDefault()">Reset to Default</button>
+                </div>
+                
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Bahar System Computer Products Catalog @POORIA SH | All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        // Sample product data - NEW SECTION
+        // In a real application, this would be loaded from a database or API
+        let products = [
+    {
+        id: 1,
+        category: "All-In-One PC",
+        title: "DELL OPTIPLEX 3240",
+        specs: "I5(6) / 8GB RAM / 256 SSD / 2G R7 M320 / 22\" / IPS / FullHD",
+        price: 19500000,
+        image: "DELL OPTIPLEX 3240.png"
+    },
+    {
+        id: 2,
+        category: "All-In-One PC",
+        title: "DELL OPTIPLEX AIO 7450",
+        specs: "I5(6) / 8GB RAM / 256 SSD / 2G SHARE INTEL / 24\" / IPS",
+        price: 21500000,
+        image: "DELL OPTIPLEX AIO 7450.png"
+    },
+    {
+        id: 3,
+        category: "Monitor",
+        title: "SAMSUNG 2022 27\"",
+        specs: "1980*1080 / IPS / VGA / HDMI / 75Hz / 18 MONTH GARANTY",
+        price: 12500000,
+        image: "SAMSUNG 2022 27.png"
+    },
+    {
+        id: 4,
+        category: "Monitor",
+        title: "SAMSUNG 2022 24\"",
+        specs: "1980*1080 / VA / VGA / HDMI / 75Hz / 18 MONTH GARANTY",
+        price: 10600000,
+        image: "SAMSUNG 2022 24.png"
+    },
+    {
+        id: 5,
+        category: "Monitor",
+        title: "DELL 2017 24\" Frameless",
+        specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB 3",
+        price: 6000000,
+        image: "DELL 2017 24 Frameless.png"
+    },
+    {
+        id: 6,
+        category: "Monitor",
+        title: "DELL 2016 24\"",
+        specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB 3",
+        price: 5500000,
+        image: "Dell P2414H 24 c3.png"
+    },
+    {
+        id: 7,
+        category: "Monitor",
+        title: "DELL 2017 22\" FRAMELESS",
+        specs: "1980*1080 / IPS / FULL PORT / PORT USB 3",
+        price: 4500000,
+        image: "DELL 2017 22 FRAMELESS.png"
+    },
+    {
+        id: 8,
+        category: "Monitor",
+        title: "DELL 2016 23\"",
+        specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB",
+        price: 4500000,
+        image: "DELL 2016 23.png"
+    },
+    {
+        id: 9,
+        category: "Monitor",
+        title: "HP 2016 23\"",
+        specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB",
+        price: 4500000,
+        image: "HP 2016 23.png"
+    },
+    {
+        id: 10,
+        category: "Monitor",
+        title: "SAMSUNG 2017 24\"",
+        specs: "1980*1080 / LED / VGA / DVI / DISPLAYPORT",
+        price: 5000000,
+        image: "SAMSUNG 2022 24 2.png"
+    },
+    {
+        id: 11,
+        category: "Monitor",
+        title: "ACER (WHITE) 2019 24\"",
+        specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI",
+        price: 5000000,
+        image: "ACER (WHITE) 2019 24.png"
+    },
+    {
+        id: 12,
+        category: "Tiny Case",
+        title: "HP G2 TINY CASE",
+        specs: "I5(6) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 9500000,
+        image: "HP G2 TINY CASE.png"
+    },
+    {
+        id: 13,
+        category: "Tiny Case",
+        title: "HP G3 TINY CASE",
+        specs: "I5(7) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 10500000,
+        image: "HP_EliteDesk_800_G2_Mini_c2.jpg"
+    },
+    {
+        id: 14,
+        category: "Mini Case",
+        title: "HP G1 MINI CASE",
+        specs: "I5(4) / 4GB RAM / 500 HDD / 4G INTEL",
+        price: 6400000,
+        image: "MINI-CASE-HP-ELITE-800-G2.jpg"
+    },
+    {
+        id: 15,
+        category: "Mini Case",
+        title: "HP G2 MINI CASE",
+        specs: "I5(6) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 7600000,
+        image: "MINI-CASE-HP-ELITE-800-G2.jpg"
+    },
+    {
+        id: 16,
+        category: "Mini Case",
+        title: "HP G3 MINI CASE",
+        specs: "I5(7) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 8600000,
+        image: "HP G3 MINI CASE.jpg"
+    },
+    {
+        id: 17,
+        category: "Mini Case",
+        title: "HP G4 MINI CASE",
+        specs: "I5(8) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 16500000,
+        image: "HP G3 MINI CASE.jpg"
+    },
+    {
+        id: 18,
+        category: "Mini Case",
+        title: "HP G5 MINI CASE",
+        specs: "I5(9) / 8GB RAM / 500 HDD / 4G INTEL",
+        price: 19500000,
+        image: "HP G3 MINI CASE.jpg"
+    },
+    {
+        id: 19,
+        category: "Notebook",
+        title: "DELL LATITUDE E5430",
+        specs: "I5(3) / 4GB RAM / 750G HDD / 2G INTEL",
+        price: 9500000,
+        image: "1769551DELL LATITUDE E5430.jpg"
+    },
+    {
+        id: 20,
+        category: "Notebook",
+        title: "DELL LATITUDE E6530",
+        specs: "I5(3) / 4GB RAM / 500G HDD / 2G INTEL",
+        price: 9800000,
+        image: "DELL LATITUDE E6530.jpg"
+    },
+    {
+        id: 21,
+        category: "Notebook",
+        title: "DELL LATITUDE E6250",
+        specs: "I7(5) / 8GB RAM / 240G SSD / 4G INTEL",
+        price: 15500000,
+        image: "DELL LATITUDE E6250.jpg"
+    },
+    {
+        id: 22,
+        category: "Notebook",
+        title: "DELL LATITUDE E5270",
+        specs: "I7(6U) / 8GB RAM / 240G SSD / 4G INTEL",
+        price: 16500000,
+        image: "DELL LATITUDE E5270.jpg"
+    },
+    {
+        id: 23,
+        category: "Notebook",
+        title: "HP PRO BOOK 6460B",
+        specs: "I5(3) / 4GB RAM / 320G HDD / 2G INTEL",
+        price: 9500000,
+        image: "HP PRO BOOK 6460B.jpg"
+    },
+    {
+        id: 24,
+        category: "Notebook",
+        title: "HP PRO BOOK 645 G2",
+        specs: "I5(6U) / 8GB RAM / 500G HDD / 4G INTEL",
+        price: 15500000,
+        image: "HP PRO BOOK 645 G2.png"
+    },
+    {
+        id: 25,
+        category: "Notebook",
+        title: "HP PRO BOOK 650 G2",
+        specs: "I5(6U) / 8GB RAM / 256G SSD M.2 / 4G INTEL",
+        price: 18500000,
+        image: "HP PRO BOOK 650 G2.png"
+    },
+    {
+        id: 26,
+        category: "Notebook",
+        title: "HP PRO BOOK 650 G2",
+        specs: "I7(6HQ) / 8GB RAM / 256G SSD M.2 / 4G INTEL",
+        price: 19500000,
+        image: "HP PRO BOOK 650 G2.png"
+    },
+    {
+        id: 27,
+        category: "Notebook",
+        title: "ACER ASPIRE 5755G",
+        specs: "I5(2) / 4GB RAM / 500G HDD / 2G GT 630",
+        price: 9500000,
+        image: "ACER ASPIRE 5755G.png"
+    }
+];
+        
+        // Function to format price with commas - NEW FUNCTION
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Function to save products to local storage - NEW FUNCTION
+        function saveProductsToStorage() {
+            localStorage.setItem('catalogProducts', JSON.stringify(products));
+        }
+        
+        // Function to load products from local storage - NEW FUNCTION
+        function loadProductsFromStorage() {
+            const storedProducts = localStorage.getItem('catalogProducts');
+            if (storedProducts) {
+                products = JSON.parse(storedProducts);
+            } else {
+                // Initialize storage with default products on first run
+                saveProductsToStorage();
+            }
+        }
+        
+        // Function to render product cards - NEW FUNCTION
+        function renderProductCards() {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = '';
+            
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image || 'placeholder.jpg'}" alt="${product.title}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-specs">${product.specs}</p>
+                        <div class="product-price">${formatPrice(product.price)} Tomans</div>
+                    </div>
+                `;
+                
+                productGrid.appendChild(card);
+            });
+        }
+        
+        // Function to render the edit table - NEW FUNCTION
+        function renderEditTable() {
+            const tableBody = document.getElementById('editTableBody');
+            tableBody.innerHTML = '';
+            
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${product.title}</td>
+                    <td>${product.category}</td>
+                    <td>${formatPrice(product.price)} Tomans</td>
+                    <td>
+                        <input type="number" id="price-${product.id}" value="${product.price}" min="0">
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Function to toggle between catalog and admin views - NEW FUNCTION
+        function toggleAdminMode() {
+            const catalogSection = document.getElementById('catalogSection');
+            const adminSection = document.getElementById('adminSection');
+            const adminButton = document.getElementById('adminButton');
+            
+            if (adminSection.style.display === 'none') {
+                // Switch to admin mode
+                catalogSection.style.display = 'none';
+                adminSection.style.display = 'block';
+                adminButton.textContent = 'Exit Admin Mode';
+                renderEditTable();
+            } else {
+                // Switch to catalog mode
+                adminSection.style.display = 'none';
+                catalogSection.style.display = 'block';
+                adminButton.textContent = 'Admin Mode';
+                renderProductCards();
+            }
+        }
+        
+        // Function to save price changes - NEW FUNCTION
+        function saveChanges() {
+            products.forEach(product => {
+                const priceInput = document.getElementById(`price-${product.id}`);
+                if (priceInput) {
+                    const newPrice = parseInt(priceInput.value);
+                    if (!isNaN(newPrice) && newPrice >= 0) {
+                        product.price = newPrice;
+                    }
+                }
+            });
+            
+            // Save to local storage
+            saveProductsToStorage();
+            
+            // Show success message
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = 'Prices updated successfully!';
+            statusMessage.className = 'status-message success';
+            statusMessage.style.display = 'block';
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 3000);
+            
+            // Refresh the edit table
+            renderEditTable();
+        }
+        
+        // Initialize the page - MODIFIED SECTION
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load products from storage
+            loadProductsFromStorage();
+            
+            // Render product cards
+            renderProductCards();
+            
+            // Admin button event listener
+            document.getElementById('adminButton').addEventListener('click', toggleAdminMode);
+            
+            // Save changes button event listener
+            document.getElementById('saveChanges').addEventListener('click', saveChanges);
+            
+            // Back to catalog button event listener
+            document.getElementById('backToCatalog').addEventListener('click', toggleAdminMode);
+            
+            // Add search functionality - FROM ORIGINAL CODE
+            const searchInput = document.querySelector('.search input');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const productCards = document.querySelectorAll('.product-card');
+                
+                productCards.forEach(card => {
+                    const title = card.querySelector('.product-title').textContent.toLowerCase();
+                    const specs = card.querySelector('.product-specs').textContent.toLowerCase();
+                    const category = card.querySelector('.product-category').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || specs.includes(searchTerm) || category.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Add category filter functionality - FROM ORIGINAL CODE
+            const categorySelect = document.querySelector('.category-filter select');
+            
+            categorySelect.addEventListener('change', function() {
+                const selectedCategory = this.value.toLowerCase();
+                const productCards = document.querySelectorAll('.product-card');
+                
+                if (selectedCategory === 'all') {
+                    productCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    return;
+                }
+                
+                productCards.forEach(card => {
+                    const cardCategory = card.querySelector('.product-category').textContent.toLowerCase();
+                    
+                    if (selectedCategory === 'all-in-one' && cardCategory.includes('all-in-one')) {
+                        card.style.display = 'block';
+                    } else if (selectedCategory === 'monitors' && cardCategory.includes('monitor')) {
+                        card.style.display = 'block';
+                    } else if ((selectedCategory === 'cases') && 
+                              (cardCategory.includes('mini case') || cardCategory.includes('tiny case'))) {
+                        card.style.display = 'block';
+                    } else if (selectedCategory === 'notebooks' && cardCategory.includes('notebook')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

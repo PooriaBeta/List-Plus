@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCK CENTER Products Catalog</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" href="ListStyles.css">
+    <!-- <style> -->
+
+</head>
+
+<body>
+    <header>
+
+        <h1>Stock Center Products Catalog</h1>
+        <p class="subtitle">High-Quality Tech Solutions</p>
+
+    </header>
+
+
+
+
+
+    <div class="container">
+        <!-- Admin Panel Button - NEW SECTION -->
+        <div class="admin-panel">
+            <button class="admin-button" id="adminButton">Admin Mode</button>
+        </div>
+    
+        <!-- This section only shows on the main page -->
+        <div id="catalogSection">
+        <div class="filters">
+            <div class="search">
+                <input type="text" placeholder="Search products...">
+            </div>
+
+            <div class="category-filter">
+                <select>
+                    <option value="all">All Categories</option>
+                    <option value="all-in-one">All-In-One PCs</option>
+                    <option value="monitors">Monitors</option>
+                    <option value="cases">Desktop Cases</option>
+                    <option value="notebooks">Notebooks</option>
+                </select>
+            </div>
+
+        </div>
+        
+        <div class="products-grid" id="productGrid">
+            
+        </div>
+    </div>
+
+
+        
+        <!-- Admin Edit Section - NEW SECTION -->
+        <div id="adminSection" style="display: none;">
+            <div class="edit-panel">
+                <h2>Edit Product Prices</h2>
+                <table class="edit-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Current Price</th>
+                            <th>New Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="editTableBody">
+                        <!-- Product edit rows will be inserted here -->
+                    </tbody>
+                </table>
+
+                <div class="action-buttons">
+                    <button class="save-button" id="saveChanges">Save Changes</button>
+                    <button class="back-button" id="backToCatalog">Back to Catalog</button>
+                    <!-- <button class="back-button" id="backToCatalog">Back to Catalog</button> -->
+                    <button class="reset-btn" onclick="resetToDefault()">Reset to Default</button>
+                </div>
+
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <button id="scroll-to-top" title="Scroll to top">↑
+    </button>
+    <footer>
+        <p>© 2025 Bahar System Computer Products Catalog @POORIA SH | All Rights Reserved</p>
+    </footer>
+
+    <script src="ListScript.js"></script>
+</body>
+
+</html>

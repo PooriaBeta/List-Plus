@@ -1,0 +1,139 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Edit Prices</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        input[type="number"] { width: 150px; padding: 5px; }
+        .actions { margin-top: 20px; }
+        button { padding: 8px 15px; margin-right: 10px; cursor: pointer; }
+        .save-btn { background-color: #4CAF50; color: white; border: none; }
+        .reset-btn { background-color: #f44336; color: white; border: none; }
+        .back-btn { background-color: #2196F3; color: white; border: none; }
+        .status-message { margin-top: 10px; padding: 10px; border-radius: 4px; display: none; }
+        .success { background-color: #dff0d8; color: #3c763d; }
+    </style>
+</head>
+<body>
+    <h1>Edit Product Prices</h1>
+    
+    <table id="productsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Products will be displayed here -->
+        </tbody>
+    </table>
+    
+    <div class="actions">
+        <button class="save-btn" onclick="saveChanges()">Save Changes</button>
+        <button class="reset-btn" onclick="resetToDefault()">Reset to Default</button>
+        <button class="back-btn" onclick="window.location.href='product-catalog.html'">Back to Catalog</button>
+    </div>
+    
+    <div id="statusMessage" class="status-message"></div>
+    
+    <script>
+        // Default product data
+        const defaultProducts = [
+            {
+                id: 1,
+                name: "Monitor SAMSUNG 2022 27\" 1980*1080 / IPS / VGA / HDMI / 75Hz / 18 MONTH GARANTY",
+                price: 12500000
+            },
+            {
+                id: 2,
+                name: "Laptop Dell Inspiron 15",
+                price: 18500000
+            },
+            {
+                id: 3,
+                name: "Logitech G502 Gaming Mouse",
+                price: 2350000
+            }
+        ];
+
+        // Load products from localStorage or use defaults
+        function loadProducts() {
+            const storedProducts = localStorage.getItem('products');
+            return storedProducts ? JSON.parse(storedProducts) : defaultProducts;
+        }
+
+        // Display products in the edit table
+        function displayProductsForEdit() {
+            const products = loadProducts();
+            const tableBody = document.querySelector('#productsTable tbody');
+            
+            tableBody.innerHTML = '';
+            
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>
+                        <input type="number" id="price-${product.id}" value="${product.price}" min="0">
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Save changes to localStorage
+        function saveChanges() {
+            const products = loadProducts();
+            
+            products.forEach(product => {
+                const priceInput = document.getElementById(`price-${product.id}`);
+                if (priceInput) {
+                    product.price = parseInt(priceInput.value, 10);
+                }
+            });
+            
+            localStorage.setItem('products', JSON.stringify(products));
+            
+            // Show success message
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = 'Prices saved successfully!';
+            statusMessage.className = 'status-message success';
+            statusMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // Reset to default values
+        function resetToDefault() {
+            localStorage.setItem('products', JSON.stringify(defaultProducts));
+            displayProductsForEdit();
+            
+            // Show success message
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = 'Reset to default prices.';
+            statusMessage.className = 'status-message success';
+            statusMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize the page
+        window.onload = function() {
+            displayProductsForEdit();
+        };
+    </script>
+</body>
+</html>
