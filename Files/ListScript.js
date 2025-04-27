@@ -220,6 +220,22 @@
                 specs: "I5(2) / 4GB RAM / 500G HDD / 2G GT 630",
                 price: 9500000,
                 image: "ACER ASPIRE 5755G.png"
+            },
+            {
+                id: 28,
+                category: "All-In-One PC",
+                title: "APPLE IMAC AIO 3240",
+                specs: "I5(3) / 8GB RAM / 1TB HDD / 1G R7 M320 / 22\" / IPS / FullHD",
+                price: 24500000,
+                image: "APPLE imac slim 22.jpg"
+            },
+            {
+                id: 29,
+                category: "All-In-One PC",
+                title: "APPLE IMAC AIO 7450",
+                specs: "I5(4) / 8GB RAM / 1TB HDD / 2G / 24\" / IPS / 2K",
+                price: 31500000,
+                image: "APPLE imac slim 22.jpg"
             }
         ];
  // Function to format price with commas
@@ -342,7 +358,9 @@ function saveChanges() {
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+
     // Load products from storage COMMENT THIS WHEN CHANGE
+
     loadProductsFromStorage();  // THIS
     
     // Render product cards
