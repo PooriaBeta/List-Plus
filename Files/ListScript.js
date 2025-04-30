@@ -107,7 +107,7 @@
                 title: "HP G3 TINY CASE",
                 specs: "I5(7) / 8GB RAM / 500 HDD / 4G INTEL",
                 price: 10500000,
-                image: "HP_EliteDesk_800_G2_Mini_c2.jpg"
+                image: "HP G3 TINY CASE.jpg"
             },
             {
                 id: 14,
@@ -224,7 +224,7 @@
             {
                 id: 28,
                 category: "All-In-One PC",
-                title: "APPLE IMAC AIO 3240",
+                title: "APPLE IMAC AIO 22 slim",
                 specs: "I5(3) / 8GB RAM / 1TB HDD / 1G R7 M320 / 22\" / IPS / FullHD",
                 price: 24500000,
                 image: "APPLE imac slim 22.jpg"
@@ -232,10 +232,10 @@
             {
                 id: 29,
                 category: "All-In-One PC",
-                title: "APPLE IMAC AIO 7450",
+                title: "APPLE IMAC AIO 27 slim",
                 specs: "I5(4) / 8GB RAM / 1TB HDD / 2G / 24\" / IPS / 2K",
                 price: 31500000,
-                image: "APPLE imac slim 22.jpg"
+                image: "APPLE imac 27.webp"
             }
         ];
  // Function to format price with commas
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load products from storage COMMENT THIS WHEN CHANGE
 
-    loadProductsFromStorage();  // THIS
+    loadProductsFromStorage();  // THIS  
     
     // Render product cards
     renderProductCards();
