@@ -181,7 +181,7 @@ button:hover {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background-color: #007bff;
+    background-color: #3498db;
     color: #ffffff;
     border: none;
     padding: 3px 16px 8px 16px;
@@ -190,6 +190,7 @@ button:hover {
     font-weight: bolder;
     cursor: pointer;
     display: none;
+    transition: background-color 0.1    s;
     -webkit-user-select: none;
     /* Safari .prevent-select*/
     -ms-user-select: none;
@@ -201,6 +202,35 @@ button:hover {
 #scroll-to-top:hover {
     background-color: #0056b3;
 }
+
+
+#scroll-to-footer {
+    /* position: fixed;
+    top: 24px;
+    right: 24px; */
+    padding: 1px 18px 6px 18px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 1rem;
+    margin-left: 8px;
+    /* display: none; */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#scroll-to-footer:hover {
+    background-color: #2980b9;
+    
+}
+
+
 
 footer {
     background-color: var(--secondary);
@@ -234,6 +264,9 @@ footer {
     margin-bottom: 22px;
     text-align: left;
     /* position:absolute; */
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .admin-button {

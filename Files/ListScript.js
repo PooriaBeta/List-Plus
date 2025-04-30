@@ -441,4 +441,12 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollButton.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+        // scrollButton functionality
+        const scrollButtonD = document.getElementById('scroll-to-footer');
+
+
+    
+        scrollButtonD.addEventListener('click', () => {
+            window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth' });
+        });
 });
