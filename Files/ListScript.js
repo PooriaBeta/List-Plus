@@ -10,7 +10,7 @@
                 category: "All-In-One PC",
                 title: "DELL OPTIPLEX 3240",
                 specs: "I5(6) / 8GB RAM / 256 SSD / 2G R7 M320 / 22\" / IPS / FullHD",
-                price: 19500000,
+                price: 18500000,
                 image: "DELL OPTIPLEX 3240.png"
             },
             {
@@ -18,7 +18,7 @@
                 category: "All-In-One PC",
                 title: "DELL OPTIPLEX AIO 7450",
                 specs: "I5(6) / 8GB RAM / 256 SSD / 2G SHARE INTEL / 24\" / IPS",
-                price: 21500000,
+                price: 20500000,
                 image: "DELL OPTIPLEX AIO 7450.png"
             },
             {
@@ -40,7 +40,7 @@
             {
                 id: 5,
                 category: "Monitor",
-                title: "DELL 2017 24\" Frameless",
+                title: "DELL 2017 24\" Slim",
                 specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB 3",
                 price: 6000000,
                 image: "DELL 2017 24 Frameless.png"
@@ -56,7 +56,7 @@
             {
                 id: 7,
                 category: "Monitor",
-                title: "DELL 2017 22\" FRAMELESS",
+                title: "DELL 2017 22\" Slim",
                 specs: "1980*1080 / IPS / FULL PORT / PORT USB 3",
                 price: 4500000,
                 image: "DELL 2017 22 FRAMELESS.png"
@@ -72,7 +72,7 @@
             {
                 id: 9,
                 category: "Monitor",
-                title: "HP 2016 23\"",
+                title: "HP 2016 23\" IPS",
                 specs: "1980*1080 / IPS / DISPLAY PORT / VGA / DVI / PORT USB",
                 price: 4500000,
                 image: "HP 2016 23.png"
@@ -114,7 +114,7 @@
                 category: "Mini Case",
                 title: "HP G1 MINI CASE",
                 specs: "I5(4) / 4GB RAM / 500 HDD / 4G INTEL",
-                price: 6400000,
+                price: 6500000,
                 image: "MINI-CASE-HP-ELITE-800-G2.jpg"
             },
             {
@@ -122,15 +122,23 @@
                 category: "Mini Case",
                 title: "HP G2 MINI CASE",
                 specs: "I5(6) / 8GB RAM / 500 HDD / 4G INTEL",
-                price: 7600000,
+                price: 7200000,
                 image: "MINI-CASE-HP-ELITE-800-G2.jpg"
+            },
+            {
+                id: 31,
+                category: "Mini Case",
+                title: "HP G3 MINI CASE (600)",
+                specs: "I5(7) / 8GB RAM / 500 HDD / 4G INTEL",
+                price: 8200000,
+                image: "HP G3 MINI CASE 600.png"
             },
             {
                 id: 16,
                 category: "Mini Case",
                 title: "HP G3 MINI CASE",
                 specs: "I5(7) / 8GB RAM / 500 HDD / 4G INTEL",
-                price: 8600000,
+                price: 8500000,
                 image: "HP G3 MINI CASE.jpg"
             },
             {
@@ -138,7 +146,7 @@
                 category: "Mini Case",
                 title: "HP G4 MINI CASE",
                 specs: "I5(8) / 8GB RAM / 500 HDD / 4G INTEL",
-                price: 16500000,
+                price: 14500000,
                 image: "HP G3 MINI CASE.jpg"
             },
             {
@@ -146,12 +154,12 @@
                 category: "Mini Case",
                 title: "HP G5 MINI CASE",
                 specs: "I5(9) / 8GB RAM / 500 HDD / 4G INTEL",
-                price: 19500000,
-                image: "HP G3 MINI CASE.jpg"
+                price: 17500000,
+                image: "HP G3 MINI CASE 600.png"
             },
             {
                 id: 19,
-                category: "Notebook",
+                category: "Laptops",
                 title: "DELL LATITUDE E5430",
                 specs: "I5(3) / 4GB RAM / 750G HDD / 2G INTEL",
                 price: 9500000,
@@ -159,7 +167,7 @@
             },
             {
                 id: 20,
-                category: "Notebook",
+                category: "Laptops",
                 title: "DELL LATITUDE E6530",
                 specs: "I5(3) / 4GB RAM / 500G HDD / 2G INTEL",
                 price: 9800000,
@@ -167,7 +175,7 @@
             },
             {
                 id: 21,
-                category: "Notebook",
+                category: "Laptops",
                 title: "DELL LATITUDE E6250",
                 specs: "I7(5) / 8GB RAM / 240G SSD / 4G INTEL",
                 price: 15500000,
@@ -175,7 +183,7 @@
             },
             {
                 id: 22,
-                category: "Notebook",
+                category: "Laptops",
                 title: "DELL LATITUDE E5270",
                 specs: "I7(6U) / 8GB RAM / 240G SSD / 4G INTEL",
                 price: 16500000,
@@ -183,7 +191,7 @@
             },
             {
                 id: 23,
-                category: "Notebook",
+                category: "Laptops",
                 title: "HP PRO BOOK 6460B",
                 specs: "I5(3) / 4GB RAM / 320G HDD / 2G INTEL",
                 price: 9500000,
@@ -191,23 +199,23 @@
             },
             {
                 id: 24,
-                category: "Notebook",
+                category: "Laptops",
                 title: "HP PRO BOOK 645 G2",
                 specs: "I5(6U) / 8GB RAM / 500G HDD / 4G INTEL",
                 price: 15500000,
-                image: "HP PRO BOOK 645 G2.png"
+                image: "HP PRO BOOK 645 G2 c1.png"
             },
             {
                 id: 25,
-                category: "Notebook",
+                category: "Laptops",
                 title: "HP PRO BOOK 650 G2",
                 specs: "I5(6U) / 8GB RAM / 256G SSD M.2 / 4G INTEL",
-                price: 18500000,
+                price: 17500000,
                 image: "HP PRO BOOK 650 G2.png"
             },
             {
                 id: 26,
-                category: "Notebook",
+                category: "Laptops",
                 title: "HP PRO BOOK 650 G2",
                 specs: "I7(6HQ) / 8GB RAM / 256G SSD M.2 / 4G INTEL",
                 price: 19500000,
@@ -215,7 +223,7 @@
             },
             {
                 id: 27,
-                category: "Notebook",
+                category: "Laptops",
                 title: "ACER ASPIRE 5755G",
                 specs: "I5(2) / 4GB RAM / 500G HDD / 2G GT 630",
                 price: 9500000,
@@ -226,7 +234,7 @@
                 category: "All-In-One PC",
                 title: "APPLE IMAC AIO 22 slim",
                 specs: "I5(3) / 8GB RAM / 1TB HDD / 1G R7 M320 / 22\" / IPS / FullHD",
-                price: 24500000,
+                price: 22500000,
                 image: "APPLE imac slim 22.jpg"
             },
             {
@@ -236,6 +244,38 @@
                 specs: "I5(4) / 8GB RAM / 1TB HDD / 2G / 24\" / IPS / 2K",
                 price: 31500000,
                 image: "APPLE imac 27.webp"
+            },
+            {
+                id: 30,
+                category: "Laptops",
+                title: "Lenovo G510",
+                specs: "I5(4) / 6GB RAM / 500G HDD / 2G AMD",
+                price: 12500000,
+                image: "Lenovo g510 c1.png"
+            },
+            {
+                id: 32,
+                category: "Monitor",
+                title: "HP 2016 23\"",
+                specs: "1980*1080 / DISPLAY PORT / VGA / DVI / USB",
+                price: 4000000,
+                image: "HP 2016 23.png"
+            },
+            {
+                id: 33,
+                category: "Monitor",
+                title: "DELL P2419H 24\" FRAMELESS",
+                specs: "1980*1080 / IPS / DISPLAY PORT / HDMI / VGA / USB",
+                price: 6000000,
+                image: "Dell P2419h c1.png"
+            },
+            {
+                id: 34,
+                category: "Monitor",
+                title: "Lenovo 2019 24\" HDMI",
+                specs: "1980*1080 / IPS / DISPLAY PORT / HDMI / VGA / USB",
+                price: 5500000,
+                image: "Lenovo 2019 24 c1.png"
             }
         ];
  // Function to format price with commas
@@ -359,10 +399,12 @@ function saveChanges() {
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Load products from storage COMMENT THIS WHEN CHANGE
+    // Load products from storage COMMENT THIS WHEN CHANGE    // Load products from storage COMMENT THIS WHEN CHANGE    // Load products from storage COMMENT THIS WHEN CHANGE
 
-    loadProductsFromStorage();  // THIS  
+    // loadProductsFromStorage();  
     
+    // Load products from storage COMMENT THIS WHEN CHANGE    // Load products from storage COMMENT THIS WHEN CHANGE    // Load products from storage COMMENT THIS WHEN CHANGE
+
     // Render product cards
     renderProductCards();
     
@@ -419,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if ((selectedCategory === 'cases') && 
                       (cardCategory.includes('mini case') || cardCategory.includes('tiny case'))) {
                 card.style.display = 'block';
-            } else if (selectedCategory === 'notebooks' && cardCategory.includes('notebook')) {
+            } else if (selectedCategory === 'laptops' && cardCategory.includes('laptops')) {
                 card.style.display = 'block';
             } else {
                 card.style.display = 'none';

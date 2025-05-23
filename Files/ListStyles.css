@@ -294,8 +294,8 @@ footer {
     padding: 20px;
     margin-bottom: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 1.05rem; 
-    font-weight: bold;
+    /* font-size: 1.05rem;  */
+    /* font-weight: 700; */
 }
 
 .edit-panel h2 {
@@ -334,7 +334,7 @@ footer {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .action-buttons button {
     font-weight: bold;
